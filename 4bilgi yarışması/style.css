@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:ital@1&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Ysabeau', sans-serif;
+    background: url(https://i.pinimg.com/564x/b2/fe/e2/b2fee2ed4e522a4ad7d50d5c9fd7d80c.jpg) center;
+    display: flex;
+    flex-direction: column; 
+    /* yazılar yan yana gelmesin diye sütun haline çevirmek için */
+    align-items: center;
+    justify-content: center;
+    height: 125vh;
+    margin: 0;
+    /* heighttan dolayı oluşan üstteki boşluğu yok etmek için margin verdik */
+    overflow: hidden;
+    /* taşma olursa yok olsun diye verdik */
+}
+
+.quiz-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0, 0, 10px, 2px rgba(100, 100, 100, a0.1); /*bune*/
+    width: 600px;
+    margin-bottom: 10rem;
+    /* beyazı yukarı taşıyoe */
+    
+} 
+
+.quiz-header {
+    padding: 2rem;
+}
+
+h2{
+    padding: 0 4rem;
+    margin: 3rem;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li{
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+ul li label{
+    cursor: pointer;
+}
+
+.submit{
+    border: none;
+    background-color: rgb(127, 255, 138);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    border-radius: 0, 0, 20px, 20px;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+#submit:focus::after{
+    content: ', Son Kararım ✊🏻';
+}
+/* active verseydin evete tıklayınca sın kararım gelir kaldırınca geçerdi.
+focus koyunca şıkları değişince evet gider diğeri gelir. */
+
+#submit:focus{
+    outline: none;
+    background-color: deeppink;
+}
+
+[type='radio']:checked,
+[type='radio']:not(:checked) {
+  display: none;
+}
+
+[type='radio']:checked + label,
+[type='radio']:not(:checked) + label {
+  position: relative;
+  padding-left: 1.8rem;
+  cursor: pointer;
+}
+
+[type='radio']:checked + label:before,
+[type='radio']:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #ddd;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+[type='radio']:checked + label:after,
+[type='radio']:not(:checked) + label:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: deeppink;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+
+[type='radio']:not(:checked) + label:after {
+    opacity: 0;
+  }
+  
+  [type='radio']:checked + label:after {
+    opacity: 1;
+  }
